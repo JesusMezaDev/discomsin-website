@@ -91,9 +91,10 @@
 
     const createTimer = () => {
         let slide = 0;
-        const miliSecondsTime = Number(import.meta.env.MY_SLIDER_TIMER) || 5000;
-        
-        if (miliSecondsTime === -1) return;
+        const miliSecondsTime = Number(import.meta.env.MY_SLIDER_TIMER || 5000);
+
+        if (isNaN(miliSecondsTime)) return;
+        if (miliSecondsTime < 0) return;
 
         timerId.value = setInterval(() => {
             slide = currentSlide.value + 1;
