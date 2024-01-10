@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h3>{{ currentCatalogDescription }}</h3>
+        <h2 class="text-center">{{ currentCatalogDescription }}</h2>
         <div class="row my-3">
             <div class="col my-3" v-for="image in catalogImages">
                 <img :src="image.secure_url" alt="">
