@@ -29,14 +29,8 @@
                             Catálogos
                         </a>
                         <ul class="dropdown-menu" :class="{ 'show': showCatalogsMenu }" @mouseleave="showCatalogsMenu = false">
-                            <li>
-                                <a href="#" class="dropdown-item text-black" @click="redirectTo({ catalogName: 'salas', catalogDescription: 'Muebles' })">Muebles</a>
-                            </li>
-                            <li>
-                                <a href="#" class="dropdown-item text-black" @click="redirectTo({ catalogName: 'lineablanca', catalogDescription: 'Línea Blanca' })">Línea Blanca</a>
-                            </li>
-                            <li>
-                                <a href="#" class="dropdown-item text-black" @click="redirectTo({ catalogName: 'electronicos', catalogDescription: 'Electrónicos' })">Electrónicos</a>
+                            <li v-for="{ catalogName, catalogDescription } in catalogs">
+                                <a href="#" class="dropdown-item text-black" @click="redirectTo({ catalogName, catalogDescription })">{{ catalogDescription }}</a>
                             </li>
                         </ul>
                     </li>
@@ -83,14 +77,8 @@
                                     Catálogos
                                 </a>
                                 <ul class="dropdown-menu" :class="{ 'show': showCatalogsMenu }">
-                                    <li>
-                                        <a href="#" class="dropdown-item text-black" @click="redirectTo({ catalogName: 'salas', catalogDescription: 'Muebles' })">Muebles</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="dropdown-item text-black" @click="redirectTo({ catalogName: 'lineablanca', catalogDescription: 'Línea Blanca' })">Línea Blanca</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="dropdown-item text-black" @click="redirectTo({ catalogName: 'electronicos', catalogDescription: 'Electrónicos' })">Electrónicos</a>
+                                    <li v-for="{ catalogName, catalogDescription } in catalogs">
+                                        <a href="#" class="dropdown-item text-black" @click="redirectTo({ catalogName, catalogDescription })">{{ catalogDescription }}</a>
                                     </li>
                                 </ul>
                             </li>
@@ -120,6 +108,29 @@
     const showOffCanvasMenu = ref(false);
     
     const whatsappNumberAndSubject = ref(`https://wa.me/${ import.meta.env.MY_WHATSAPP_NUMBER || '52XXXXXXXXXX' }?text=${ encodeURIComponent(import.meta.env.MY_WHATSAPP_SUBJECT || '') }`);
+
+    const catalogs = ref<{ catalogName: string, catalogDescription: string }[]>([
+        {
+            catalogName: 'lineablanca',
+            catalogDescription: 'Línea Blanca',
+        },
+        {
+            catalogName: 'muebles',
+            catalogDescription: 'Muebles',
+        },
+        {
+            catalogName: 'electronica',
+            catalogDescription: 'Electrónica',
+        },
+        {
+            catalogName: 'cocinayelectrodomesticos',
+            catalogDescription: 'Cocina y Electrodomésticos',
+        },
+        {
+            catalogName: 'decoracion',
+            catalogDescription: 'Decoración',
+        },
+    ]);
 
     const getImagesFromCatalog = async (catalogName: string) => {
         isLoading.value = true;
