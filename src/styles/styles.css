@@ -10,3 +10,85 @@
     --bs-dropdown-link-hover-bg: #e2e1e1;
     --bs-dropdown-link-active-bg: #c7c7c7;
 }
+
+/* Para el componente Navbar */
+.normal-logo {
+    height: 100%;
+}
+
+@media screen and (max-width: 1600px) {
+    .normal-logo {
+        height: 90px;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .normal-logo {
+        height: 80px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .normal-logo {
+        height: 60px;
+    }
+}
+
+.off-canvas-container {
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 3;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    position: fixed;
+    visibility: hidden;
+}
+
+.off-canvas-container.show {
+    visibility: visible;
+}
+
+.show-offcanvas-menu {
+    display: none;
+}
+
+.show-normal-menu {
+    display: block;
+}
+
+.off-canvas-logo {
+    height: 80px;
+}
+
+@media screen and (max-width: 912px) {
+    .show-offcanvas-menu {
+        display: block;
+    }
+
+    .show-normal-menu {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .off-canvas-logo {
+        height: 70px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .off-canvas-logo {
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 280px) {
+    .off-canvas-logo {
+        height: 40px;
+    }
+}
+
+.highlight-link:hover {
+    color: #7c7c7c!important;
+}
