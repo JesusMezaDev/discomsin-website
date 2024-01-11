@@ -1,6 +1,6 @@
 <template>
   <header>
-    <Slider />
+    <Carousel/>
   </header>
   <main>
     <News />
@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
   import News from '@/components/News.vue';
-  import Slider from '@/components/Slider.vue';
+  import Carousel from '@/modules/carousel/views/CarouselView.vue';
 </script>
 
 <style scoped>

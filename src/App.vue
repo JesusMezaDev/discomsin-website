@@ -13,7 +13,7 @@
 
 <script setup lang="ts">
   import Spinner from '@/shared/spinner/Spinner.vue';
-  import Navbar from '@/components/Navbar.vue';
+  import Navbar from '@/modules/navbar/views/NavbarView.vue';
 </script>
 
 <style scoped>
