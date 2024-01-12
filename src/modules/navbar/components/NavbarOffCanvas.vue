@@ -7,7 +7,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" @click="showOffCanvasMenu = !showOffCanvasMenu">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="off-canvas-container" @click.self="showOffCanvasMenu = false" :class="{ 'show': showOffCanvasMenu }">
+            <div class="off-canvas-container" @click.self="closeMenuOffCanvas" :class="{ 'show': showOffCanvasMenu }">
                 <div class="offcanvas offcanvas-end w-75" style="z-index: 5;" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" :class="{ 'show': showOffCanvasMenu, 'hiding': !showOffCanvasMenu }">
                     <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menú</h5>
@@ -57,6 +57,11 @@
 
     const navbarStore = useNavbarStore();
     const { showCatalogsMenu, showOffCanvasMenu } = storeToRefs(navbarStore);
+    
+    const closeMenuOffCanvas = () => {
+        showOffCanvasMenu.value = false;
+        showCatalogsMenu.value = false;
+    }
 </script>
 
 <style scoped>
