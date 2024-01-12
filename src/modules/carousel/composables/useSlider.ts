@@ -12,10 +12,40 @@ export const useSlider = () => {
     const carouselStore = useCarouselStore();
     const { currentSlide, slides } = storeToRefs(carouselStore);
     
-    let timerId = ref(0);
+    const timerId = ref(0);
+    const timerTimeout1 = ref(0);
+    const timerTimeout2 = ref(0);
+
+    const clearTimersTimeout = () => {
+        clearTimeout(timerTimeout1.value);
+        clearTimeout(timerTimeout2.value);
+    }
 
     const goToSlide = (slideNumber: number) => {
         currentSlide.value = slideNumber;
+        
+        const activeDiv = document.querySelector(`div.carousel-item.active`);
+        const nextDiv = document.querySelector(`div.carousel-item[data-carousel-item-number="${ currentSlide.value }"]`);
+        
+        if (!(activeDiv instanceof HTMLDivElement)) return;
+        if (!(nextDiv instanceof HTMLDivElement)) return;
+        
+        nextDiv.classList.add('carousel-item-next');
+        nextDiv.classList.add('carousel-item-start');
+        activeDiv.classList.add('carousel-item-end');
+        nextDiv.classList.add('active');
+
+        clearTimersTimeout();
+        
+        timerTimeout1.value = setTimeout(() => {
+            nextDiv.classList.remove('carousel-item-next');
+            nextDiv.classList.remove('carousel-item-start');
+        }, 1);
+
+        timerTimeout2.value = setTimeout(() => {
+            activeDiv.classList.remove('carousel-item-end');
+            activeDiv.classList.remove('active');
+        }, 600);
     }
 
     const beforeGoToSlide = (slideNumber: number) => {
@@ -58,20 +88,37 @@ export const useSlider = () => {
         },
         goToSlide,
         previousSlide: () => {
-            if (currentSlide.value === 0) {
-                currentSlide.value = slides.value.length - 1;
-                return;
-            }
-    
             currentSlide.value--;
+            if (currentSlide.value < 0) currentSlide.value = slides.value.length - 1;
+            
+            const activeDiv = document.querySelector(`div.carousel-item.active`);
+            const prevDiv = document.querySelector(`div.carousel-item[data-carousel-item-number="${ currentSlide.value }"]`);
+
+            if (!(activeDiv instanceof HTMLDivElement)) return;
+            if (!(prevDiv instanceof HTMLDivElement)) return;
+
+            prevDiv.classList.add('carousel-item-prev');
+            prevDiv.classList.add('carousel-item-end');
+            activeDiv.classList.add('carousel-item-start');
+            prevDiv.classList.add('active');
+
+            clearTimersTimeout();
+            
+            timerTimeout1.value = setTimeout(() => {
+                prevDiv.classList.remove('carousel-item-prev');
+                prevDiv.classList.remove('carousel-item-end');
+            }, 1);
+
+            timerTimeout2.value = setTimeout(() => {
+                activeDiv.classList.remove('carousel-item-start');
+                activeDiv.classList.remove('active');
+            }, 600);
         },
         nextSlide: () => {
-            if (currentSlide.value === slides.value.length - 1) {
-                currentSlide.value = 0;
-                return;
-            }
-    
             currentSlide.value++;
+            if (currentSlide.value > slides.value.length - 1) currentSlide.value = 0;
+
+            goToSlide(currentSlide.value);
         },
         stopTimer: () => {
             clearInterval(timerId.value);

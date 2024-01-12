@@ -7,7 +7,7 @@ interface Slides {
 
 export const useCarouselStore = defineStore('carousel', () => {
     const slides = ref<Slides[]>([]);
-    let currentSlide = ref(0);
+    const currentSlide = ref(0);
 
   return {
     currentSlide,

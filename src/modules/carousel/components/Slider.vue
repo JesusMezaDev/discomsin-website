@@ -1,10 +1,11 @@
 <template>
-    <div id="slider" class="carousel slide carousel-fade" @mouseover="stopTimer" @mouseleave="createTimer">
+    <div id="slider" class="carousel slide" @mouseover="stopTimer" @mouseleave="createTimer">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#slider" v-for="(_, index) in slides" :class="{ 'active': index === currentSlide }" @click="goToSlide(index)"></button>
         </div>
         <div class="carousel-inner">
-            <div class="carousel-item" v-for="(slide, index) in slides" :class="{ 'active': index === currentSlide }">
+            <!-- <div class="carousel-item" v-for="(slide, index) in slides" :data-carousel-item-number="index" :class="{ 'active': index === currentSlide }"> -->
+            <div class="carousel-item" v-for="(slide, index) in slides" :data-carousel-item-number="index" :class="{ 'active': index === 0 }">
                 <Slide :url="slide.url" />
             </div>
         </div>
