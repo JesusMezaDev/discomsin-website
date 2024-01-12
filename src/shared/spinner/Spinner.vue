@@ -65,6 +65,7 @@
         visibility: visible;
     }
 
+    /* https://uiball.com/ldrs/ */
     .container {
         --uib-size: 150px;
         --uib-color: #FFF;
