@@ -2,7 +2,11 @@
   <Spinner />
   <div class="container">
     <Navbar />
-    <RouterView />
+    <RouterView v-slot="{ Component }">
+      <Transition name="fade">
+        <component :is="Component" />
+      </Transition>
+    </RouterView>
     <Footer />
   </div>
 </template>

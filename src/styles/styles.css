@@ -92,3 +92,14 @@
 .highlight-link:hover {
     color: #7c7c7c!important;
 }
+
+/* Vue Router Transitions */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 500ms ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}

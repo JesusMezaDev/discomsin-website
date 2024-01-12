@@ -7,6 +7,7 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: () => import('@/views/HomeView.vue'),
+      meta: { transition: 'fade' },
       // children: [
       //   // {
       //   //   path: 'catalogs/:catalogName',
@@ -19,12 +20,14 @@ const router = createRouter({
     {
       path: '/catalogs',
       name: 'catalogs',
-      component: () => import('@/views/Catalogs.vue')
+      component: () => import('@/views/Catalogs.vue'),
+      meta: { transition: 'fade' },
     },
     {
       path: '/about',
       name: 'about',
-      component: () => import('@/views/AboutView.vue')
+      component: () => import('@/views/AboutView.vue'),
+      meta: { transition: 'fade' },
     },
   ]
 })
