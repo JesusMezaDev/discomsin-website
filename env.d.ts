@@ -4,6 +4,7 @@ interface ImportMetaEnv {
     readonly MY_SLIDER_TIMER: string,
     readonly MY_WHATSAPP_NUMBER: string,
     readonly MY_WHATSAPP_SUBJECT: string,
+    readonly MY_MAPBOX_TOKEN: string,
 }
 
 interface ImportMeta {

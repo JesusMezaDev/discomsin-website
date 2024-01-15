@@ -2,12 +2,16 @@
   <Spinner />
   <PictureViewer />
   <div class="container">
-    <Navbar />
-    <RouterView v-slot="{ Component }">
-      <Transition name="fade" mode="out-in">
-        <component :is="Component" />
-      </Transition>
-    </RouterView>
+    <header>
+      <Navbar />
+    </header>
+    <main>
+      <RouterView v-slot="{ Component }">
+        <Transition name="fade" mode="out-in">
+          <component :is="Component" />
+        </Transition>
+      </RouterView>
+    </main>
     <Footer />
   </div>
 </template>

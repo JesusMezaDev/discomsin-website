@@ -28,7 +28,13 @@ const router = createRouter({
       name: 'about',
       component: () => import('@/views/AboutView.vue'),
       meta: { transition: 'fade' },
-    }
+    },
+    {
+      path: '/map',
+      name: 'map',
+      component: () => import('@/components/MapViewer.vue'),
+      meta: { transition: 'fade' },
+    },
   ]
 })
 

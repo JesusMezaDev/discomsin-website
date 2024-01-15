@@ -4,9 +4,9 @@
       <header>
         <Carousel/>
       </header>
-      <main>
+      <article>
         <News />
-      </main>
+      </article>
     </div>
   </div>
 </template>

@@ -18,9 +18,9 @@
 </script>
 
 <style scoped>
-  .footer {
-    position: static;
+  /* .footer {
+    position: fixed;
     bottom: 0;
     left: 0;
-  }
+  } */
 </style>
