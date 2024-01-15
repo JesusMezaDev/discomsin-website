@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-  import News from '@/components/News.vue';
+  import News from '@/modules/news/views/NewsView.vue';
   import Carousel from '@/modules/carousel/views/CarouselView.vue';
 </script>
 

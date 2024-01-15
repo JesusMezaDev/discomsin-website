@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-  import Footer from './components/Footer.vue';
+  import Footer from './shared/footer/views/Footer.vue';
   import Spinner from '@/shared/spinner/Spinner.vue';
   import Navbar from '@/modules/navbar/views/NavbarView.vue';
   import PictureViewer from './shared/picture-viewer/views/PictureViewerView.vue';

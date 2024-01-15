@@ -9,17 +9,22 @@
 
 <script setup lang="ts">
     import { onMounted } from 'vue';
-    import mapboxgl from 'mapbox-gl';
+    import mapboxgl, { type LngLatLike } from 'mapbox-gl';
 
     const { Map, /*Marker,*/ Popup } = mapboxgl;
+
+    const lng: number = Number(import.meta.env.MY_LNG_MAPBOX || 0);
+    const lat: number = Number(import.meta.env.MY_LAT_MAPBOX || 0);
+    const center: LngLatLike = [lng, lat];
+    const zoom: number = Number(import.meta.env.MY_ZOOM_MAPBOX || 14.5);
 
     onMounted(() => {
         const map = new Map({
             accessToken: import.meta.env.MY_MAPBOX_TOKEN,
             container: 'map',
             style: 'mapbox://styles/mapbox/streets-v12',
-            center: [-108.9963244, 25.7926782],
-            zoom: 14.5,
+            center,
+            zoom,
             attributionControl: false,
         });
 
@@ -34,7 +39,7 @@
             closeOnClick: false,
             closeButton: false,
         })
-        .setLngLat([-108.9963244, 25.7926782])
+        .setLngLat(center)
         .setHTML(`<img src="/img/logo.png" alt="logo" style="width: 220px;"><br /><p style="text-align: center;">¡Aquí podrás encontrarnos!</p>`)
         .addTo(map);
     });
