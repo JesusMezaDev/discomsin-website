@@ -1,9 +1,10 @@
 <template>
   <Spinner />
+  <PictureViewer />
   <div class="container">
     <Navbar />
     <RouterView v-slot="{ Component }">
-      <Transition name="fade">
+      <Transition name="fade" mode="out-in">
         <component :is="Component" />
       </Transition>
     </RouterView>
@@ -15,6 +16,7 @@
   import Footer from './components/Footer.vue';
   import Spinner from '@/shared/spinner/Spinner.vue';
   import Navbar from '@/modules/navbar/views/NavbarView.vue';
+  import PictureViewer from './shared/picture-viewer/views/PictureViewerView.vue';
 </script>
 
 <style scoped>

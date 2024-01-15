@@ -1,10 +1,14 @@
 <template>
-  <header>
-    <Carousel/>
-  </header>
-  <main>
-    <News />
-  </main>
+  <div class="row">
+    <div class="col">
+      <header>
+        <Carousel/>
+      </header>
+      <main>
+        <News />
+      </main>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">

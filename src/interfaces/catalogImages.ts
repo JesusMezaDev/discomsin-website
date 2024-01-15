@@ -4,4 +4,10 @@ export interface CatalogImages {
     folder:     string;
     url:        string;
     secure_url: string;
+    info?:      Info;
+}
+
+export interface Info {
+    title:         string;
+    description:   string;
 }

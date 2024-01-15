@@ -8,6 +8,7 @@ export const useMainStore = defineStore('main', () => {
   const currentCatalogDescription = ref('');
 
   return {
+    /* Variables de estado */
     catalogImages,
     currentCatalogDescription,
     isLoading,
