@@ -6,14 +6,14 @@
                     <img src="/img/logo.png" alt="logo" class="normal-logo">
                 </a>
                 <ul class="nav nav-pills fs-3">
-                    <li class="nav-item align-self-center">
-                        <a class="nav-link text-black bi-twitter-x" target="_blank" href="https://twitter.com"></a>
+                    <li class="nav-item align-self-center" v-if="x_Url">
+                        <a class="nav-link text-black bi-twitter-x" target="_blank" :href="x_Url"></a>
                     </li>
-                    <li class="nav-item align-self-center">
-                        <a class="nav-link text-blue bi-facebook" target="_blank" href="https://facebook.com"></a>
+                    <li class="nav-item align-self-center" v-if="facebook_Url">
+                        <a class="nav-link text-blue bi-facebook" target="_blank" :href="facebook_Url"></a>
                     </li>
-                    <li class="nav-item align-self-center">
-                        <a class="nav-link text-secondary bi-instagram" target="_blank" href="https://instagram.com"></a>
+                    <li class="nav-item align-self-center" v-if="instagram_Url">
+                        <a class="nav-link text-secondary bi-instagram" target="_blank" :href="instagram_Url"></a>
                     </li>
                     <li class="nav-item align-self-center">
                         <a class="nav-link text-success bi-whatsapp" target="_blank" :href="whatsappNumberAndSubject"></a>
@@ -42,7 +42,12 @@
     import NavbarCatalogListItem from './NavbarCatalogListItem.vue';
     import { useNavbar } from '../composables/useNavbar';
 
-    const { whatsappNumberAndSubject } = useNavbar();
+    const {
+        facebook_Url,
+        instagram_Url,
+        whatsappNumberAndSubject,
+        x_Url,
+    } = useNavbar();
 
     const navbarStore = useNavbarStore();
     const { showCatalogsMenu } = storeToRefs(navbarStore);

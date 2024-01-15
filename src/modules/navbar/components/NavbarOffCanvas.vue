@@ -15,14 +15,14 @@
                     </div>
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 fs-3">
-                            <li class="nav-item">
-                                <a class="nav-link text-black bi-twitter-x" target="_blank" href="https://twitter.com">Twitter</a>
+                            <li class="nav-item" v-if="x_Url">
+                                <a class="nav-link text-black bi-twitter-x" target="_blank" :href="x_Url">Twitter</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-blue bi-facebook" target="_blank" href="https://facebook.com">Facebook</a>
+                            <li class="nav-item" v-if="facebook_Url">
+                                <a class="nav-link text-blue bi-facebook" target="_blank" :href="facebook_Url">Facebook</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-secondary bi-instagram" target="_blank" href="https://instagram.com">Instagram</a>
+                            <li class="nav-item" v-if="instagram_Url">
+                                <a class="nav-link text-secondary bi-instagram" target="_blank" :href="instagram_Url">Instagram</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-success bi-whatsapp" target="_blank" :href="whatsappNumberAndSubject">Whatstapp</a>
@@ -53,7 +53,12 @@
     import NavbarCatalogListItem from './NavbarCatalogListItem.vue';
     import { useNavbar } from '../composables/useNavbar';
     
-    const { whatsappNumberAndSubject } = useNavbar();
+    const {
+        facebook_Url,
+        instagram_Url,
+        whatsappNumberAndSubject,
+        x_Url,
+    } = useNavbar();
 
     const navbarStore = useNavbarStore();
     const { showCatalogsMenu, showOffCanvasMenu } = storeToRefs(navbarStore);

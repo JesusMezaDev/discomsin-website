@@ -18,6 +18,10 @@ export const useNavbar = () => {
     
     const whatsappNumberAndSubject = ref(`https://wa.me/${ import.meta.env.MY_WHATSAPP_NUMBER || '52XXXXXXXXXX' }?text=${ encodeURIComponent(import.meta.env.MY_WHATSAPP_SUBJECT || '') }`);
 
+    const x_Url = import.meta.env.MY_X_URL || '';
+    const facebook_Url = import.meta.env.MY_FACEBOOK_URL || '';
+    const instagram_Url = import.meta.env.MY_INSTAGRAM_URL || '';
+
     const catalogs = ref<{ catalogName: string, catalogDescription: string }[]>([
         {
             catalogName: 'lineablanca',
@@ -57,7 +61,10 @@ export const useNavbar = () => {
     return {
         /* Variables */
         catalogs,
+        facebook_Url,
+        instagram_Url,
         whatsappNumberAndSubject,
+        x_Url,
 
         /* Functions/Methods */
         redirectTo: async (options: { catalogName: string, catalogDescription: string}) => {
