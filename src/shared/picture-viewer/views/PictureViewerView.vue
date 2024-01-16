@@ -21,7 +21,7 @@
 </script>
 
 <style scoped>
-    @media screen and (min-width: 1280px) {
+    @media screen and (max-width: 1280px) {
         img {
             height: 420px;
             width: 880px;
