@@ -2,7 +2,7 @@
     <div class="overlay" :class="{ 'active': showPictureInfo }" @click.self="showPictureInfo = false"></div>
     <div class="spinner" :class="{ 'active': showPictureInfo }">
         <div class="card">
-            <img class="card-img-top mt-3 px-3" :src="pictureInfo.url" :alt="pictureInfo.title">
+            <img class="card-img-top my-2 px-2" :src="pictureInfo.url" :alt="pictureInfo.title">
             <div class="card-body" v-if="pictureInfo.title && pictureInfo.description">
                 <h5 class="card-title">{{ pictureInfo.title }}</h5>
                 <p class="card-text">
