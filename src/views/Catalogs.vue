@@ -1,6 +1,6 @@
 <template>
-    <div class="container">
-        <h2 class="text-center">{{ currentCatalogDescription }}</h2>
+    <div class="container text-center">
+        <h2>{{ currentCatalogDescription }}</h2>
         <div class="row my-3">
             <div class="col my-3" v-for="image in catalogImages">
                 <img :src="image.secure_url" alt="" @click="loadPicture({ url: image.secure_url, title: image.info?.title, description: image.info?.description })">
@@ -44,5 +44,28 @@
 <style scoped>
     img {
         cursor: pointer;
+        height: 205px;
+        width: 300px;
+    }
+
+    @media screen and (max-width: 540px) {
+        img {
+            height: 180px;
+            width: 295px;
+        }
+    }
+    
+    @media screen and (max-width: 480px) {
+        img {
+            height: 160px;
+            width: 290px;
+        }
+    }
+    
+    @media screen and (max-width: 280px) {
+        img {
+            height: 110px;
+            width: 210px;
+        }
     }
 </style>

@@ -53,35 +53,28 @@
 <style scoped>
     img {
         cursor: pointer;
+        height: 300px;
+        width: 610px;
     }
 
-    @media screen and (min-width: 1280px) {
+    @media screen and (max-width: 540px) {
         img {
-            height: 300px;
-        }
-    }
-    
-    @media screen and (max-width: 1024px) {
-        img {
-            height: 200px;
-        }
-    }
-
-    @media screen and (max-width: 768px) {
-        img {
-            height: 180px;
+            height: 230px;
+            width: 460px;
         }
     }
     
     @media screen and (max-width: 480px) {
         img {
             height: 180px;
+            width: 350px;
         }
     }
     
     @media screen and (max-width: 280px) {
         img {
-            height: 120px;
+            height: 110px;
+            width: 250px;
         }
     }
 </style>

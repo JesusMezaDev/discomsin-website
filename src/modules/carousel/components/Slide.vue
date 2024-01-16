@@ -7,6 +7,11 @@
 </script>
 
 <style scoped>
+    img {
+        height: 350px;
+        width: 1300px;
+    }
+
     @media screen and (max-width: 912px) {
         img {
             height: 220px;
