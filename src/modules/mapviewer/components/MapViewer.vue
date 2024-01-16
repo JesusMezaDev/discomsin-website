@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <p class="fs-4">
-            Llámanos al (667) 266-1951 o si lo prefieres, búscanos en nuestra sucursal en Avenida Licenciado Benito Juárez #1234, entre Francisco Javier Mina y Vicente Guerrero, Colonia Centro.
+            Llámanos al (667) 266-1951 o si lo prefieres, búscanos en nuestra sucursal en calle Independencia #66, Colonia Centro, CP 80430, Costa Rica, Sinaloa.
         </p>
         <div id="map" class="my-2" style="height: 75vh; height: 75dvh;"></div>
     </div>
